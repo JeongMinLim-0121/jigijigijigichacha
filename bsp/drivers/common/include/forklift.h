@@ -23,3 +23,15 @@ struct fk_enc_stat { unsigned int ticks; unsigned int speed; }; /* 임의단위 
 #define IOCTL_LED_SET         _IOW(FK_MAGIC, 30, unsigned char) /* bit=LED */
 #define IOCTL_LED_GET         _IOR(FK_MAGIC, 31, unsigned char)
 #define IOCTL_KEY_GET         _IOR(FK_MAGIC, 32, unsigned char)
+
+/* --- kernel api compatibility ----------------------------------- */
+#include <linux/version.h>
+
+#ifndef CLASS_CREATE
+# if LINUX_VERSION_CODE >= KERNEL_VERSION(6,4,0)
+#  define CLASS_CREATE(name) class_create(name)
+# else
+#  define CLASS_CREATE(name) CLASS_CREATE(name)
+# endif
+#endif
+
