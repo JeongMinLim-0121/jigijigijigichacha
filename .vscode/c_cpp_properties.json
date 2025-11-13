@@ -1,0 +1,26 @@
+{
+  "version": 4,
+  "configurations": [
+    {
+      "name": "Linux Kernel 6.14.0-33-generic",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/usr/include",
+        "/lib/modules/6.14.0-33-generic/build/include",
+        "/lib/modules/6.14.0-33-generic/build/include/uapi",
+        "/lib/modules/6.14.0-33-generic/build/include/generated",
+        "/lib/modules/6.14.0-33-generic/build/include/generated/uapi",
+        "/lib/modules/6.14.0-33-generic/build/arch/x86/include",
+        "/lib/modules/6.14.0-33-generic/build/arch/x86/include/uapi",
+        "/lib/modules/6.14.0-33-generic/build/arch/x86/include/generated"
+      ],
+      "defines": [
+        "__KERNEL__",
+        "MODULE"
+      ],
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "intelliSenseMode": "linux-gcc-x64"
+    }
+  ]
+}

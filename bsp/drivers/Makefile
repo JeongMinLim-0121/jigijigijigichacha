@@ -1,11 +1,10 @@
 # --- Top-level Makefile for all driver modules ---
 
+# 하위 드라이버 폴더들(필요 없는 건 지워도 됨)
 SUBDIRS := encoder estop imu ledkey lidar motor power
-KDIR := /lib/modules/$(shell uname -r)/build
 
 .PHONY: all clean
 
-# 전체 빌드
 all:
 	@echo "== Building all driver modules =="
 	@for dir in $(SUBDIRS); do \
@@ -14,11 +13,10 @@ all:
 	done
 	@echo "✅ All modules built successfully!"
 
-# 전체 클린
 clean:
 	@echo "== Cleaning all driver modules =="
 	@for dir in $(SUBDIRS); do \
 		echo "[CLEAN] $$dir"; \
-		$(MAKE) -C $$dir clean; \
+		$(MAKE) -C $$dir clean || true; \
 	done
-	@echo "All modules cleaned!"
+	@echo "🧹 All modules cleaned!"
